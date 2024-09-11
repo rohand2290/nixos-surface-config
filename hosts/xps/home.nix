@@ -49,7 +49,7 @@
 	enableSyntaxHighlighting = true;
 	loginExtra = "sway";
 	shellAliases = {
-		"update" = "sudo nixos-rebuild switch --flake /home/rohand/nixos-surface-config#xps";
+		"update" = "sudo nixos-rebuild switch --flake /home/rohand/nixos-surface-config#surface";
 	};
 	oh-my-zsh = {
 		enable = true;
