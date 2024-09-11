@@ -9,8 +9,8 @@
 	./../../homeManagerModules/htop.nix
 	./../../homeManagerModules/lf.nix
 	./../../homeManagerModules/pandoc.nix
-	./../../homeManagerModules/texlive.nix
 	./../../homeManagerModules/bat.nix
+	./../../homeManagerModules/i3status.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -28,7 +28,6 @@
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
   	autotiling
-	i3status
 	fastfetch
 	nix-tree
 	sway-contrib.grimshot
@@ -39,6 +38,7 @@
 #	})
 	obsidian
 	vesktop
+	texlive.combined.scheme-basic
   ];
 
 
@@ -47,9 +47,9 @@
   programs.zsh = {
   	enable = true;
 	enableSyntaxHighlighting = true;
-	loginExtra = "sway";
+	loginExtra = "sway --unsupported-gpu";
 	shellAliases = {
-		"update" = "sudo nixos-rebuild switch --flake /home/rohand/nixos-surface-config#surface";
+		"update" = "sudo nixos-rebuild switch --flake /home/rohand/nixos-surface-config#xps";
 	};
 	oh-my-zsh = {
 		enable = true;
@@ -66,6 +66,7 @@
   programs.ranger = {
   	enable = true;
   };
+  programs.helix.enable = true;
   wayland.windowManager.sway = {
   	enable = true;
 	config = rec {

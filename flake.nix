@@ -10,6 +10,7 @@
 	# inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # home-manager = {
     #   url = "github:nix-community/home-manager";
@@ -17,7 +18,7 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, stylix, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixvim, stylix, nixos-hardware, ... }@inputs: {
     nixosConfigurations.surface = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
@@ -42,6 +43,7 @@
     	system = "x86_64-linux";
 	specialArgs = {inherit inputs;};
 	modules = [
+		nixos-hardware.nixosModules.dell-xps-15-9500-nvidia
 		./hosts/xps/configuration.nix
 		stylix.nixosModules.stylix
 		home-manager.nixosModules.home-manager
