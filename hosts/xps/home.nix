@@ -38,7 +38,9 @@
 #	})
 	obsidian
 	vesktop
-	texlive.combined.scheme-basic
+	texlive.combined.scheme-full
+	todoist
+	glxinfo
   ];
 
 

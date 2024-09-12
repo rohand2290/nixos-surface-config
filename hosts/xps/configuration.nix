@@ -78,6 +78,8 @@
      pulsemixer
      brightnessctl
      lm_sensors
+     acpi
+     nvitop
   ];
   environment.sessionVariables = {
 	NIXOS_OZONE_WL = "1";
@@ -99,6 +101,7 @@ hardware.pulseaudio = {
 hardware.opengl.enable = true;
 
 nix.settings.experimental-features = ["nix-command" "flakes"];
+nix.settings.auto-optimise-store = true;
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -133,7 +136,8 @@ nix.settings.experimental-features = ["nix-command" "flakes"];
 		};
 		serif = {
 			package = pkgs.nerdfonts;
-			name = "Overpass Nerd Font";
+			# name = "Overpass Nerd Font";
+			name = "FantasqueSansM Nerd Font";
 		};
 		sansSerif = config.stylix.fonts.serif;
 		sizes = {
