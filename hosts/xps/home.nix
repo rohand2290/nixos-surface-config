@@ -11,6 +11,7 @@
 	./../../homeManagerModules/pandoc.nix
 	./../../homeManagerModules/bat.nix
 	./../../homeManagerModules/i3status.nix
+	./../../homeManagerModules/zsh.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -46,19 +47,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.zsh = {
-  	enable = true;
-	enableSyntaxHighlighting = true;
-	loginExtra = "sway --unsupported-gpu";
-	shellAliases = {
-		"update" = "sudo nixos-rebuild switch --flake /home/rohand/nixos-surface-config#xps";
-	};
-	oh-my-zsh = {
-		enable = true;
-		plugins = ["git" "vi-mode"];
-		theme = "minimal";
-	};
-  };
   #programs.alacritty = {
   #	enable = true;
   #};
